@@ -1,0 +1,18 @@
+.navbar{
+    display: flex;
+    background-color: cornflowerblue;
+    padding: 3px;
+    justify-content: space-between;
+
+}
+
+.links{
+    justify-content: end;
+    color: black;
+    
+}
+
+/* .links a{
+    
+} */
+

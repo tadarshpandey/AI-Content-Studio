@@ -4,7 +4,7 @@ import { GoogleGenAI } from "@google/genai";
 
 
 const ai = new GoogleGenAI({
-  apiKey: "YOUR_GEMINI_API_KEY",
+  apiKey: import.meta.env.VITE_GEMINI_API_KEY || "",
 });
 
 
@@ -14,7 +14,7 @@ function BlogGenerator() {
   const [keyword,setKeyword] = useState("");
   const [tone,setTone] = useState("");
 
-  const handleGenerate = () => {
+  const handleGenerate = async () => {
 
     alert(`
 Topic : ${topic}
@@ -66,21 +66,10 @@ Requirements:
 
 `;
 
-      // const response = await ai.models.generateContent({
-
-      //   model: "gemini-2.5-flash",
-
-      //   contents: prompt,
-
-      // });
-
-      const generateBlog = async () => {  // <-- Add 'async' right here
-  // ... line 67
-  
-  const response = await ai.models.generateContent({
-    model: "gemini-2.5-flash",
-  });
-}
+      const response = await ai.models.generateContent({
+        model: "gemini-2.5-flash",
+        contents: prompt,
+      });
 
       const generatedBlog = response.text;
 
@@ -114,7 +103,7 @@ Requirements:
 
     catch (error) {
 
-      console.log(error);
+      console.error(error);
 
       alert("Error while generating blog.");
 

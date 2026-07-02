@@ -77,6 +77,7 @@
 import Navbar from "./Component/Navbar";
 import Sidebar from "./Component/Sidebar";
 import BlogGenerator from "./Component/BlogGenerator";
+import "./App.css";
 
 function App() {
 
@@ -85,20 +86,11 @@ function App() {
     <>
       <Navbar />
 
-      <div
-        style={{
-          display:"flex"
-        }}
-      >
+      <div className="app-container">
 
         <Sidebar />
 
-        <div
-          style={{
-            padding:"30px",
-            width:"100%"
-          }}
-        >
+        <div className="app-content">
 
           <BlogGenerator />
 
